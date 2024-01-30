@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid white;
+  padding-bottom: 200px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 90%;
+  padding: 50px;
+  height: auto;
+  min-height: 500px;
+  border: solid white;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
