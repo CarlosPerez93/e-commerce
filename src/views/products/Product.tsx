@@ -4,17 +4,19 @@ import Card from "../../components/Card";
 import Select from "../../components/Select";
 
 import styles from "./Product.module.css";
+import Api from "../../common/Api";
 
 export const Product = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data: any) => {
-        setData(data);
-      });
+    const fetchData = async () => {
+      const data = await Api({ patch: "get", params: "/products" });
+      const json = await data?.json();
+      setData(json);
+    };
+    fetchData();
   }, []);
 
   const handleFilter = (e: any) => {
