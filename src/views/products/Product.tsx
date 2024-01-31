@@ -29,9 +29,14 @@ export const Product = () => {
   return (
     <div className={styles.main}>
       <h1>E-COMMERCE</h1>
-      <Select data={data} filter={filter} handleFilter={handleFilter} />
+      <Select
+        typeFilter="categories"
+        data={data}
+        filter={filter}
+        handleFilter={handleFilter}
+      />
       <div className={styles.products}>
-        {categoryFilter({ data, filterState: filter }).map((dat: any) => (
+        {categoryFilter({ data, stateFilter: filter }).map((dat: any) => (
           <Card
             key={dat.id}
             image={dat?.image}

@@ -1,11 +1,11 @@
 type useFilter = {
   data: any;
-  filterState: string;
+  stateFilter: string;
 };
-export const categoryFilter = ({ data, filterState }: useFilter) => {
+export const categoryFilter = ({ data, stateFilter }: useFilter) => {
   return data.filter((item: any) => {
-    return filterState.toLowerCase() == ""
+    return stateFilter.toLowerCase() == ""
       ? item
-      : item.category.toLowerCase().includes(filterState);
+      : item.category.toLowerCase().includes(stateFilter);
   });
 };

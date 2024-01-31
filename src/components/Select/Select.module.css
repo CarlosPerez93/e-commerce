@@ -1,10 +1,20 @@
-.select {
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border: solid;
-  border-radius: 0.5rem;
-  width: 400px;
-  height: 30px;
-  font-size: 20px;
-  padding: 10px;
-  margin: 10px;
-  justify-content: end;
+  label {
+    font-size: x-large;
+  }
+  .select {
+    border: solid;
+    border-radius: 0.5rem;
+    width: 400px;
+    height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    justify-content: end;
+  }
 }
