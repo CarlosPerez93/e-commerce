@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  margin: 0;
   justify-content: center;
   align-items: center;
   border: solid white;
@@ -11,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  width: 90%;
+  width: 80%;
   padding: 50px;
   height: auto;
   min-height: 500px;
