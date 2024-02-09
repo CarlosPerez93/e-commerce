@@ -1,5 +1,3 @@
-import Product from "../views/products/Product";
-
 export enum patchEnum {
   post = "post",
   get = "get",

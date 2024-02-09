@@ -1,26 +1,21 @@
 import { useEffect, useState } from "react";
 
-import Card from "../../components/Card";
-import Select from "../../components/Select";
-
-import Api from "../../common/Api";
+import { Card } from "../../components/Card";
+import { Select } from "../../components/Select";
 import { categoryFilter } from "../../hooks/useFilter";
-
-import styles from "./Product.module.css";
 import { FilterPrice } from "../../components/FilterPrice";
 
+import { getData } from "../../functions/getData";
+
+import styles from "./Product.module.css";
+
 export const Product = () => {
+  const [key, setKey] = useState("");
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
-  const [key, setKey] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await Api({ patch: "get", params: "/products" });
-      const json = await data?.json();
-      setData(json);
-    };
-    fetchData();
+    getData(setData, "/products");
   }, []);
 
   const handleFilter = (e: any, key: string) => {
