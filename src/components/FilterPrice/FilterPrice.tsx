@@ -2,6 +2,7 @@ import { FC } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 import { FilterPriceProps } from "./filterPrice.type";
 
+import styles from "./Filter.module.css";
 export const FilterPrice: FC<FilterPriceProps> = ({
   setMax,
   setMin,
@@ -9,7 +10,7 @@ export const FilterPrice: FC<FilterPriceProps> = ({
   min,
 }) => {
   return (
-    <div>
+    <div className={styles.filterPice}>
       <CustomInput
         label="Min"
         htmlFor="max"

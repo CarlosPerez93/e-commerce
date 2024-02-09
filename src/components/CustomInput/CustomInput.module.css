@@ -1,0 +1,14 @@
+.customInput {
+  width: 250px;
+  height: 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+
+  input {
+    border: solid 0.2px;
+    border-radius: 0.4rem;
+    border-color: rgba(0, 0, 0, 0.493);
+  }
+}

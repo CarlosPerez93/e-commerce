@@ -7,13 +7,10 @@
     font-size: x-large;
   }
   .select {
-    border: solid;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     width: 400px;
     height: 30px;
     font-size: 20px;
-    padding: 10px;
     margin: 10px;
-    justify-content: end;
   }
 }
