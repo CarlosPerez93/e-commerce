@@ -12,8 +12,7 @@ import { FilterPrice } from "../../components/FilterPrice";
 export const Product = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
-  const [max, setMax] = useState(0);
-  const [min, setMin] = useState(0);
+  const [key, setKey] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +23,9 @@ export const Product = () => {
     fetchData();
   }, []);
 
-  const handleFilter = (e: any) => {
+  const handleFilter = (e: any, key: string) => {
     setFilter(e.target.value);
+    setKey(key);
   };
 
   if (data.length === 0) return <h1>loading...</h1>;
@@ -37,12 +37,12 @@ export const Product = () => {
           typeFilter="categories"
           data={data}
           filter={filter}
-          handleFilter={handleFilter}
+          handleFilter={(e) => handleFilter(e, "categories")}
         />
-        <FilterPrice setMax={setMax} setMin={setMin} min={min} max={max} />
+        <FilterPrice handleFilter={(e) => handleFilter(e, "price")} />
       </div>
       <div className={styles.products}>
-        {categoryFilter({ data, stateFilter: filter }).map((dat: any) => (
+        {categoryFilter({ data, stateFilter: filter, key }).map((dat: any) => (
           <Card
             key={dat.id}
             image={dat?.image}

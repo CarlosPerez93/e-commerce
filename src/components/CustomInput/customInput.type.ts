@@ -6,9 +6,8 @@ export const CustomInputPropTypes = {
   id: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
-  state: propTypes.any.isRequired,
 
-  setState: propTypes.func.isRequired,
+  handleFilter: propTypes.func.isRequired,
 };
 
 export const CustomInputDefaultProps = {};

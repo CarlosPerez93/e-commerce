@@ -4,7 +4,6 @@ import {
   CustomInputPropTypes,
   CustomInputProps,
 } from "./customInput.type";
-import { useHandleChange } from "../../hooks/useHandleChange";
 
 import styles from "./CustomInput.module.css";
 
@@ -14,15 +13,13 @@ export const CustomInput: FC<CustomInputProps> = ({
   type,
   id,
   name,
-  state,
-  setState,
-}) => {
-  const handleChange = useHandleChange({ state, setState });
 
+  handleFilter,
+}) => {
   return (
     <div className={styles.customInput}>
       <label htmlFor={htmlFor}>{label}</label>
-      <input type={type} name={name} id={id} onChange={handleChange} />
+      <input type={type} name={name} id={id} onChange={handleFilter} />
     </div>
   );
 };

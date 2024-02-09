@@ -3,12 +3,7 @@ import CustomInput from "../CustomInput/CustomInput";
 import { FilterPriceProps } from "./filterPrice.type";
 
 import styles from "./Filter.module.css";
-export const FilterPrice: FC<FilterPriceProps> = ({
-  setMax,
-  setMin,
-  max,
-  min,
-}) => {
+export const FilterPrice: FC<FilterPriceProps> = ({ handleFilter }) => {
   return (
     <div className={styles.filterPice}>
       <CustomInput
@@ -17,8 +12,7 @@ export const FilterPrice: FC<FilterPriceProps> = ({
         id="max"
         name="max"
         type="number"
-        setState={setMax}
-        state={max}
+        handleFilter={handleFilter}
       />
       <CustomInput
         label="Max"
@@ -26,8 +20,7 @@ export const FilterPrice: FC<FilterPriceProps> = ({
         id="min"
         name="min"
         type="number"
-        setState={setMin}
-        state={min}
+        handleFilter={handleFilter}
       />
     </div>
   );
