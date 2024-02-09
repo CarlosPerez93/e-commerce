@@ -7,10 +7,13 @@ import Api from "../../common/Api";
 import { categoryFilter } from "../../hooks/useFilter";
 
 import styles from "./Product.module.css";
+import { FilterPrice } from "../../components/FilterPrice";
 
 export const Product = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
+  const [max, setMax] = useState(0);
+  const [min, setMin] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,12 +32,15 @@ export const Product = () => {
   return (
     <div className={styles.main}>
       <h1>E-COMMERCE</h1>
-      <Select
-        typeFilter="categories"
-        data={data}
-        filter={filter}
-        handleFilter={handleFilter}
-      />
+      <div className={styles.filters}>
+        <Select
+          typeFilter="categories"
+          data={data}
+          filter={filter}
+          handleFilter={handleFilter}
+        />
+        <FilterPrice setMax={setMax} setMin={setMin} min={min} max={max} />
+      </div>
       <div className={styles.products}>
         {categoryFilter({ data, stateFilter: filter }).map((dat: any) => (
           <Card
@@ -42,6 +48,8 @@ export const Product = () => {
             image={dat?.image}
             price={dat?.price}
             title={dat?.title}
+            description={dat.description}
+            category={dat.category}
           />
         ))}
       </div>
