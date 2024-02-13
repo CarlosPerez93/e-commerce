@@ -19,9 +19,22 @@ export const Card = ({
         {price}
       </p>
       {!inCart ? (
-        <CustomButton onClick={onClick} text="Add to Cart" />
+        <CustomButton
+          backGroundColor="#12eb1231"
+          width="100px"
+          onClick={onClick}
+          text="Add to Cart"
+          margin="auto"
+          borderRadius=".5rem"
+        />
       ) : (
-        <CustomButton text="In cart" />
+        <CustomButton
+          margin="auto"
+          backGroundColor="red"
+          width="100px"
+          text="In cart"
+          borderRadius=".5rem"
+        />
       )}
     </div>
   );

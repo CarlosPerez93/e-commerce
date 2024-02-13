@@ -14,9 +14,21 @@ export const ItemCart: FC<card> = ({ product }) => {
       <div className={styles.checked}>
         <img src={image} alt={title} />
         <div className={styles.btn}>
-          <CustomButton onClick={() => delToCart(product)} text="-" />
+          <CustomButton
+            margin="auto"
+            backGroundColor="#ff000033"
+            borderRadius=".5rem"
+            onClick={() => delToCart(product)}
+            text="-"
+          />
           <p>{amount}</p>
-          <CustomButton onClick={() => addToCart(product)} text="+" />
+          <CustomButton
+            margin="auto"
+            backGroundColor="#12eb1231"
+            borderRadius=".5rem"
+            onClick={() => addToCart(product)}
+            text="+"
+          />
         </div>
         <p>Total: ${amount! * price}</p>
       </div>

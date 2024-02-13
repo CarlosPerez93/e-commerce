@@ -5,8 +5,30 @@ import {
   CustomButtonDefaultProps,
 } from "./customInput";
 
-export const CustomButton: FC<CustomButtonProps> = ({ text, onClick }) => {
-  return <button onClick={onClick!}>{text} </button>;
+import styles from "./CustomButton.module.css";
+
+export const CustomButton: FC<CustomButtonProps> = ({
+  text,
+  onClick,
+  width,
+  backGroundColor,
+  margin,
+  borderRadius,
+}) => {
+  return (
+    <button
+      style={{
+        width: `${width}`,
+        backgroundColor: `${backGroundColor}`,
+        margin: `${margin}`,
+        borderRadius: `${borderRadius}`,
+      }}
+      className={styles.mainCustomButton}
+      onClick={onClick!}
+    >
+      {text}
+    </button>
+  );
 };
 
 CustomButton.propTypes = CustomButtonPropTypes;
