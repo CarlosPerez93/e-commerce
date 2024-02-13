@@ -12,6 +12,7 @@
   width: 60%;
 }
 img {
+  border-radius: 0.5rem;
   width: 50px;
   height: 50px;
 }

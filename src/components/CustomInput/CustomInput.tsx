@@ -13,13 +13,21 @@ export const CustomInput: FC<CustomInputProps> = ({
   type,
   id,
   name,
-
+  max,
+  min,
   handleFilter,
 }) => {
   return (
     <div className={styles.customInput}>
       <label htmlFor={htmlFor}>{label}</label>
-      <input type={type} name={name} id={id} onChange={handleFilter} />
+      <input
+        min={min}
+        max={max}
+        type={type}
+        name={name}
+        id={id}
+        onChange={handleFilter}
+      />
     </div>
   );
 };

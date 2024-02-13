@@ -6,6 +6,8 @@ export const CustomInputPropTypes = {
   id: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
+  min: propTypes.number.isRequired,
+  max: propTypes.number.isRequired,
 
   handleFilter: propTypes.func.isRequired,
 };

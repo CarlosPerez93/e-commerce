@@ -12,6 +12,8 @@ export const FilterPrice: FC<FilterPriceProps> = ({ handleFilter }) => {
         id="max"
         name="max"
         type="number"
+        min={0}
+        max={Infinity}
         handleFilter={handleFilter}
       />
       <CustomInput
@@ -20,6 +22,8 @@ export const FilterPrice: FC<FilterPriceProps> = ({ handleFilter }) => {
         id="min"
         name="min"
         type="number"
+        min={0}
+        max={Infinity}
         handleFilter={handleFilter}
       />
     </div>
