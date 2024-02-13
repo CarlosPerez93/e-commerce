@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import { Card } from "../../components/Card";
 import { Select } from "../../components/Select";
 import { categoryFilter } from "../../hooks/useFilter";
 import { FilterPrice } from "../../components/FilterPrice";
 
-import { getData } from "../../functions/getData";
+import { CartShopContext } from "../../context/CartContext";
 
 import styles from "./Product.module.css";
 
 export const Product = () => {
   const [key, setKey] = useState("");
-  const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
 
-  useEffect(() => {
-    getData(setData, "/products");
-  }, []);
+  const { data, addToCart } = useContext(CartShopContext);
 
   const handleFilter = (e: any, key: string) => {
     setFilter(e.target.value);
@@ -36,16 +33,10 @@ export const Product = () => {
         />
         <FilterPrice handleFilter={(e) => handleFilter(e, "price")} />
       </div>
+
       <div className={styles.products}>
         {categoryFilter({ data, stateFilter: filter, key }).map((dat: any) => (
-          <Card
-            key={dat.id}
-            image={dat?.image}
-            price={dat?.price}
-            title={dat?.title}
-            description={dat.description}
-            category={dat.category}
-          />
+          <Card key={dat.id} product={dat} onClick={() => addToCart(dat)} />
         ))}
       </div>
     </div>

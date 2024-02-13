@@ -1,14 +1,11 @@
-import product from "./card.type";
-
+import CustomButton from "../CustomButton";
 import styles from "./Card.module.css";
+import card from "./card.type";
 
 export const Card = ({
-  image,
-  price,
-  title,
-  category,
-  description,
-}: product) => {
+  product: { image, price, title, category, description, inCart },
+  onClick,
+}: card) => {
   return (
     <div className={styles.main}>
       <img src={image} alt="imagen product" className={styles.img} />
@@ -21,6 +18,11 @@ export const Card = ({
         <strong>price $</strong>
         {price}
       </p>
+      {!inCart ? (
+        <CustomButton onClick={onClick} text="Add to Cart" />
+      ) : (
+        <CustomButton text="In cart" />
+      )}
     </div>
   );
 };

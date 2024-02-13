@@ -1,0 +1,40 @@
+.mainCart {
+  transition: all;
+  transition-duration: 0.25s;
+  position: fixed;
+  top: 0;
+  right: 1px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 300px;
+  height: 100vh;
+}
+
+.btnContainer {
+  display: flex;
+  margin: 15px;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+}
+
+.icon {
+  width: auto;
+  height: auto;
+  margin-right: 2px;
+  font-size: 35px;
+}
+
+.btnCart {
+  cursor: pointer;
+  float: left;
+  background-color: #fffefea6;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 10px 10px 26px -4px rgba(0, 0, 0, 0.65);
+}

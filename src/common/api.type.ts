@@ -20,6 +20,7 @@ type Product = {
   category?: string;
   image: string;
   rating?: Rating;
+  amount?: number;
 };
 
 type Rating = {

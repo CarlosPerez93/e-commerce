@@ -6,6 +6,8 @@ type product = {
   category?: string;
   image: string;
   rating?: rating;
+  inCart?: any;
+  amount?: number;
 };
 
 type rating = {
@@ -13,4 +15,8 @@ type rating = {
   count: number;
 };
 
-export default product;
+type card = {
+  product: product;
+  onClick?: () => void;
+};
+export default card;
