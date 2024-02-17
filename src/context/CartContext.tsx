@@ -43,6 +43,7 @@ export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
 
     if (inCart?.amount === 1) {
       setCart(cart.filter((productInCart) => productInCart.id !== product.id));
+      localStorage.removeItem("cart");
     } else {
       setCart(
         cart.map((productInCart) => {
