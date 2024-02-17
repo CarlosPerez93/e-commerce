@@ -1,26 +1,23 @@
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
+
 import { Product } from "../common/api.type";
 import { getData } from "../functions/getData";
+import { CartValue } from "./cartContext.type";
 
-type cartValue = {
-  cart: Product[];
-  data: Product[];
-  open: boolean;
-  setOpen: Function;
-  addToCart: (item: Product) => void;
-  delToCart: (item: Product) => void;
-};
-
-export const CartShopContext = createContext({} as cartValue);
+export const CartShopContext = createContext({} as CartValue);
 
 export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
   const [cart, setCart] = useState<Product[]>([]);
   const [data, setData] = useState<Product[]>([]);
   const [open, setOpen] = useState<boolean>(false);
+  const [storage, setStorage] = useState<Product[]>([]);
 
   useEffect(() => {
     getData(setData, "/products");
-    console.log(cart);
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    setStorage(JSON.parse(localStorage.getItem("cart")!));
   }, [cart]);
 
   const addToCart = (product: Product) => {
@@ -43,6 +40,7 @@ export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
     const inCart = cart.find(
       (productInCart) => productInCart.id === product.id
     );
+
     if (inCart?.amount === 1) {
       setCart(cart.filter((productInCart) => productInCart.id !== product.id));
     } else {
@@ -57,7 +55,16 @@ export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
   };
   return (
     <CartShopContext.Provider
-      value={{ cart, addToCart, delToCart, data, open, setOpen }}
+      value={{
+        cart,
+        data,
+        open,
+        storage,
+        addToCart,
+        delToCart,
+        setOpen,
+        setCart,
+      }}
     >
       {children}
     </CartShopContext.Provider>

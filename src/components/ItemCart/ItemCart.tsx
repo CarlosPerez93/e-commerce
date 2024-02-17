@@ -1,9 +1,12 @@
 import { FC, useContext } from "react";
+
 import CustomButton from "../CustomButton/CustomButton";
-import { CartShopContext } from "../../context/CartContext";
+
 import card from "../Card/card.type";
+import { CartShopContext } from "../../context/CartContext";
 
 import styles from "./ItemCart.module.css";
+
 export const ItemCart: FC<card> = ({ product }) => {
   const { addToCart, delToCart } = useContext(CartShopContext);
 
@@ -16,7 +19,7 @@ export const ItemCart: FC<card> = ({ product }) => {
         <div className={styles.btn}>
           <CustomButton
             margin="auto"
-            backGroundColor="#ff000033"
+            backGroundColor="gray"
             borderRadius=".5rem"
             onClick={() => delToCart(product)}
             text="-"
@@ -24,7 +27,7 @@ export const ItemCart: FC<card> = ({ product }) => {
           <p>{amount}</p>
           <CustomButton
             margin="auto"
-            backGroundColor="#12eb1231"
+            backGroundColor="gray"
             borderRadius=".5rem"
             onClick={() => addToCart(product)}
             text="+"
@@ -35,3 +38,5 @@ export const ItemCart: FC<card> = ({ product }) => {
     </div>
   );
 };
+
+export default ItemCart;

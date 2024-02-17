@@ -1,11 +1,10 @@
 .customInput {
-  width: 250px;
+  width: 275px;
   height: 30px;
   font-size: 20px;
   display: flex;
   justify-content: space-evenly;
   margin: auto;
-
   input {
     border: solid 0.2px;
     border-radius: 0.4rem;

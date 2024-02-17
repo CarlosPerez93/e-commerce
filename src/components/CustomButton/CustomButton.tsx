@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import {
   CustomButtonPropTypes,
   CustomButtonProps,
@@ -9,11 +10,11 @@ import styles from "./CustomButton.module.css";
 
 export const CustomButton: FC<CustomButtonProps> = ({
   text,
-  onClick,
   width,
-  backGroundColor,
   margin,
   borderRadius,
+  backGroundColor,
+  onClick,
 }) => {
   return (
     <button

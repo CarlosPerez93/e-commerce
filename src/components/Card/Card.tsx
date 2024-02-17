@@ -1,6 +1,8 @@
 import CustomButton from "../CustomButton";
-import styles from "./Card.module.css";
+
 import card from "./card.type";
+
+import styles from "./Card.module.css";
 
 export const Card = ({
   product: { image, price, title, category, description, inCart },

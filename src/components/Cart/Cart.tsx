@@ -1,11 +1,20 @@
-import { useContext } from "react";
-import { CartShopContext } from "../../context/CartContext";
+import { useContext, useEffect } from "react";
 import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
 
-import styles from "./Cart.module.css";
 import { ItemCart } from "../ItemCart/ItemCart";
+
+import { CartShopContext } from "../../context/CartContext";
+
+import styles from "./Cart.module.css";
+
 export const Cart = ({}) => {
-  const { open, setOpen, cart } = useContext(CartShopContext);
+  const { open, setOpen, cart, storage, setCart } = useContext(CartShopContext);
+
+  useEffect(() => {
+    if (storage) {
+      setCart(storage);
+    }
+  }, [open]);
 
   return (
     <div className={styles.mainCart}>
@@ -21,7 +30,7 @@ export const Cart = ({}) => {
       {cart && open && (
         <div>
           <h2>Cart</h2>
-          {cart.length === 0 ? (
+          {cart.length === 0 || cart.length === 0 ? (
             <p>Empty {cart.length} </p>
           ) : (
             cart.map((item) => <ItemCart key={item.id} product={item} />)

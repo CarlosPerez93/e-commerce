@@ -7,8 +7,8 @@ import styles from "./Select.module.css";
 export const Select: FC<SelectProps> = ({
   data,
   filter,
-  handleFilter,
   typeFilter,
+  handleFilter,
 }) => {
   const categories = Array.from(
     new Set(data?.map((item: any) => item.category))

@@ -8,13 +8,13 @@ import {
 import styles from "./CustomInput.module.css";
 
 export const CustomInput: FC<CustomInputProps> = ({
+  id,
+  min,
+  max,
+  name,
+  type,
   label,
   htmlFor,
-  type,
-  id,
-  name,
-  max,
-  min,
   handleFilter,
 }) => {
   return (
