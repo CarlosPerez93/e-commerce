@@ -21,7 +21,10 @@ export const Cart = ({}) => {
       <div className={styles.btnContainer}>
         <div className={styles.btnCart} onClick={() => setOpen(!open)}>
           {!open ? (
-            <AiOutlineShoppingCart className={styles.icon} width={100} />
+            <>
+              <p className={styles.amountCart}>{cart.length}</p>
+              <AiOutlineShoppingCart className={styles.icon} width={100} />
+            </>
           ) : (
             <AiOutlineClose className={styles.icon} />
           )}

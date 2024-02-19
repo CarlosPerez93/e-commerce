@@ -1,22 +1,38 @@
 .mainCart {
   transition: all;
   transition-duration: 0.25s;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   right: 1px;
 
   overflow-y: auto;
   overflow-x: hidden;
-  width: 300px;
-  height: 100vh;
+  width: auto;
+  height: auto;
+  max-width: 250px;
 }
 
 .btnContainer {
   display: flex;
   margin: 15px;
+  width: auto;
   justify-content: end;
   align-items: end;
   flex-direction: column;
+}
+.amountCart {
+  width: 15px;
+  color: white;
+  text-align: center;
+  font-family: "exo";
+  border-radius: 50%;
+  background-color: #dcb73b;
+  position: absolute;
+  margin-block-start: auto;
+  margin-left: 30px;
+  margin-bottom: 30px;
 }
 
 .icon {
